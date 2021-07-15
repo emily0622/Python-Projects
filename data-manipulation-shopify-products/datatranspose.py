@@ -1,10 +1,14 @@
 import pandas as pd
 
-df = pd.read_csv(r"C:\\Users\\User\\Desktop\\Python-Projects\\Fetching-Stores.csv", encoding= 'unicode_escape')
+
+# CSV files may lose data when exported for excel, so it is better to use .xlsx
+df = pd.read_excel(r"C:\\Users\\User\\Desktop\\Python-Projects\\Fetching-Stores.xlsx")
 print(df)
 
-# for meep in df['product-name']:
+# for meep in df['product_name']:
 #     print(meep)
+
+
 
 # # I MIGHT NEED THIS LATER...?
 # new_product_name = []
@@ -56,9 +60,10 @@ for num in range(len(df['size_configuration'])):
         option1Name.append('size')
         for sizes in range(6):
             option1Value.append(option1ValueInput[sizes])
-            variantInventory.append(df[variantInventoryHeadings][sizes][num])
+            variantSizeString = variantInventoryHeadings[sizes]
+            variantInventory.append(df[variantSizeString][num])
                     
-        for emptyString in range(len(5)):
+        for emptyString in range(5):
             productPrice.append(price)
 
             vendor.append('')

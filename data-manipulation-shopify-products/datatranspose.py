@@ -29,45 +29,44 @@ print(df)
 vendor = []
 vendorInput = ['U of T Engineering Stores']
 published = []
-publishedInput = []
+status = []
 option1Name = []
-option1NameInput = ['size']
 option1Value = []
 option1ValueInput = ['XS','S','M','L','XL','2XL']
 variantInventory = []
 variantInventoryHeadings = ['inventory_count_xs','inventory_count_s','inventory_count_m','inventory_count_l','inventory_count_xl','inventory_count_2xl']
 productPrice = []
 for num in range(len(df['size_configuration'])):
+    if df['inventory_count'][num] == 0:
+            published.append(False)
+            status.append('active')
+    elif df['inventory_count'][num] != 0:
+        published.append(True)
+        status.append('draft')
+    else:
+        published.append('error')
+        status.append('error')
+
+    price = df['product_price'][num]
+    productPrice.append(price)
+    vendor.append(vendorInput)
+
+
     if df['size_configuration'][num] == True:
-        if df['inventory_count'][num] == 0:
-            published.append('False')
-        elif df['inventory_count'][num] != 0:
-            published.append('True')
-        else:
-            published.append('error')
-
-        price = df['product_price'][num]
-
+        option1Name.append('size')
         for sizes in range(6):
-            vendor.append(vendorInput[sizes])
+            option1Value.append(option1ValueInput[sizes])
             variantInventory.append(df[variantInventoryHeadings][sizes][num])
+                    
+        for emptyString in range(len(5)):
             productPrice.append(price)
 
-
-        vendor.append(vendorInput)
-        option1Name.append(option1NameInput)
-        for emptyString in range(len(5)):
             vendor.append('')
             option1Name.append('')
         
         # if size config = TRUE and inventory_count != 0
 
-    for i in range(len(item)):
-        if item[i] == " " or "(" or ")" or "/" or "\"" or "&":
-            new_item += "-"
-        else:
-            new_item += item[i]
-    new_product_name.append(new_item)
+
 
 
 # DataFrameName.insert(loc, column, value, allow_duplicates = False)

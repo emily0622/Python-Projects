@@ -5,27 +5,7 @@ import csv
 df = pd.read_excel(r"C:\\Users\\User\\Desktop\\Python-Projects\\Fetching-Stores.xlsx")
 print(df)
 
-# for meep in df['product_name']:
-#     print(meep)
 
-
-
-# # I MIGHT NEED THIS LATER...?
-# new_product_name = []
-# for item in df['product-name']:
-#     new_item = ""
-#     # print(item)
-#     for i in range(len(item)):
-#         if item[i] == " " or "(" or ")" or "/" or "\"" or "&":
-#             new_item += "-"
-#         else:
-#             new_item += item[i]
-#     new_product_name.append(new_item)
-
-# print(new_product_name)
-
-
-#if size configuration = TRUE then skkip x lines
 
 productWeightDict = {
 440: ['Industrial Quarter Zip (Grey)','Industrial Quarter Zip (Navy)','Navy Blue SkuleTM 1/4-Zip','SkuleTM 1/4-Zip',"Eng S'mores Fall 1/4-Zip - Graphite",'Eng Smores Fall 1/4-Zip - Dark Grey','Eng Smores Fall 1/4-Zip - Graphite',"Eng S'mores Fall 1/4-Zip - Dark Grey"], 
@@ -123,17 +103,6 @@ for num in range(len(df['size_configuration'])):
         option1Value.append('')
         
         # if size config = TRUE and inventory_count != 0
-
-
-# for i in range(len(productWeight)):
-#     print(productName[i])
-#     print(productWeight[i])
-
-
-# for i in range(len(productWeight)):
-#     if productName[i].find('atch') == -1:
-#         if productWeight[i] == 0:
-#             print(productName[i])
 
 
 

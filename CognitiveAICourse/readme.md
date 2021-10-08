@@ -2,3 +2,4 @@ These projects are from IBM's Cognitive.ai course for [Machine Learning with Pyt
 
 I have studied the code and filled in blank sections of the code as part of the course
 
+All concepts were studied in depth
